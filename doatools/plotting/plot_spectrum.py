@@ -87,7 +87,7 @@ def plot_spectrum_1d(sp, grid, ax, estimates=None, ground_truth=None,
             has_legend = True
         if discrete:
             container_sp = ax.stem(x, y, '-', markerfmt=' ', basefmt=' ',
-                                   label=label)
+                                   label=label, use_line_collection=True)
             plt.setp(container_sp, color=color)
             plot_containers.append(container_sp)
         else:
@@ -102,7 +102,7 @@ def plot_spectrum_1d(sp, grid, ax, estimates=None, ground_truth=None,
         x_est = estimates.locations
         y_est = np.ones(x_est.shape)
         container_est = ax.stem(x_est, y_est, '--', markerfmt='x',
-                                basefmt=' ', label='Estimates')
+                                basefmt=' ', label='Estimates', use_line_collection=True)
         plt.setp(container_est, color=color_estimates)
         plot_containers.append(container_est)
         has_legend = True
@@ -113,7 +113,7 @@ def plot_spectrum_1d(sp, grid, ax, estimates=None, ground_truth=None,
         x_truth = ground_truth.locations
         y_truth = np.ones(x_truth.shape)
         container_truth = ax.stem(x_truth, y_truth, '--', markerfmt='o',
-                                  basefmt=' ', label='Ground truth')
+                                  basefmt=' ', label='Ground truth', use_line_collection=True)
         plt.setp(container_truth, color=color_truth)
         plot_containers.append(container_truth)
         has_legend = True
